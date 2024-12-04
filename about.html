@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Border Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .modern-header {
+            background-color: #fff;
+            padding: 5px 15px;
+            height:100%;
+            align-items: center;
+            justify-content: space-between;
+            display: flex;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modern-header .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
+        }
+
+        .modern-header nav a {
+            margin: 0 8px;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .modern-header nav a:hover {
+            color: #007BFF;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .card {
+            position: relative;
+            width: 90%;
+            height: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.7s ease, box-shadow 0.9s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 0, 255, 0.6);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff, #0056b3, blue, blueviolet, brown, aqua, yellow, gold, yellowgreen, rebeccapurple, red, violet, olivedrab, orange, orangered);
+            background-size: 300% 300%;
+            animation: borderAnimation 4s infinite;
+            z-index: 1;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background-color: #fff;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: blue;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: aqua;
+        }
+
+        @keyframes borderAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+       
+    </style>
+</head>
+<body>
+    <header class="modern-header">
+        <div class="logo">
+            <img src="image/logo.jpg" alt="Logo">
+        </div>
+        <nav>
+            <a href="about.html" title="Our Story"><i class="fas fa-history" style="color: blueviolet; "></i> Our
+                Story</a>
+        </nav>
+    </header>
+
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-content">
+                <i class="fas fa-store card-icon"></i>
+                <h3>Our Story</h3>
+                <p>Në vitin 2023, u hodhën themelet e një ëndrre të madhe. Një ëndërr për të krijuar një markë që nuk do
+                    të ishte thjesht një dyqan, por një vend ku cilësia dhe përkushtimi do të bashkoheshin për t'ju
+                    ofruar një eksperiencë unike.
+                    Gjithçka filloi me një qëllim të thjeshtë, por thellësisht të rëndësishëm: të bëjmë jetën tuaj më të
+                    lehtë dhe më të këndshme duke ju ofruar produkte që vërtet i meritoni.
+                    Ne e kuptojmë që bota e sotme kërkon më shumë sesa thjesht produkte – ajo kërkon besim,
+                    qëndrueshmëri dhe një lidhje të sinqertë me klientët.
+                    Prandaj, çdo produkt që ofrojmë është rezultat i përkushtimit tonë për të gjetur zgjidhjet më të
+                    mira për ju.
+                    Çdo detaj, nga zgjedhja e materialeve deri te përvoja juaj në blerje, është menduar me kujdes që të
+                    përmbushë nevojat dhe pritshmëritë tuaja.
+                    Por historia jonë nuk është thjesht për produktet – ajo është për njerëzit. Besojmë se secili klient
+                    është pjesë e familjes sonë, dhe suksesi.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <i class="fas fa-bullseye card-icon"></i>
+                <h3>Our Goals</h3>
+                <p>
+                    Synimi ynë kryesor është t’ju ofrojmë produkte cilësore që plotësojnë dhe tejkalojnë pritshmëritë
+                    tuaja. Çdo hap që ndjekim, nga përzgjedhja e produkteve deri te përvoja e blerjes, është menduar me
+                    kujdes për t’ju garantuar një eksperiencë unike dhe të kënaqshme.
+                    Ne përpiqemi të përdorim teknologjinë më të fundit dhe praktikat më të qëndrueshme për t’u siguruar
+                    që çdo blerje të jetë një hap drejt një të ardhmeje më të mirë. Përkushtimi ynë ndaj cilësisë dhe
+                    përgjegjësia ndaj klientëve janë thelbi i çdo vendimi që marrim.
+                    Me ju në qendër të çdo veprimi tonë, ne synojmë të krijojmë një lidhje të fortë dhe të qëndrueshme
+                    që shkon përtej një transaksioni të zakonshëm.
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <i class="fas fa-users card-icon"></i>
+                <h3>Our Team</h3>
+                <p>
+                    Pas çdo arritjeje qëndron një ekip i përkushtuar, i cili punon me pasion për të siguruar që çdo
+                    klient të marrë një përvojë të shkëlqyer. Ekipi ynë përbëhet nga individë të talentuar dhe plot
+                    energji, që sjellin një përzierje të shkëlqyer të profesionalizmit dhe kreativitetit në çdo aspekt
+                    të punës.
+                    Me një fokus të pandërprerë te cilësia dhe kujdesi ndaj detajeve, ne bashkëpunojmë për të përmbushur
+                    dhe tejkaluar pritshmëritë tuaja. Çdo anëtar i ekipit tonë është i përkushtuar për të dhënë më të
+                    mirën, duke ju ofruar produkte dhe shërbime që reflektojnë përkushtimin tonë ndaj përsosmërisë.
+                    Bashkëpunimi ynë nuk është thjesht një punë – është një mision për të krijuar diçka të veçantë për
+                    klientët tanë. Me pasion dhe vizion, së bashku ndërtojmë një të ardhme ku çdo klient ndihet i
+                    vlerësuar dhe i mbështetur.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+  <footer style="background-color: #ffffff; padding: 20px 0; border-top: 2px solid  black; width: 100%;">
+        <div class="container mx-auto" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
+            <div style="flex: 1; min-width: 200px; text-align: center; padding: 10px;">
+                <img src="image/logo.jpg" alt="Logo" style="width: 70px; height: 70px; border-radius: 50%; margin-left: 140px; margin-bottom: 20px; box-shadow: 0 0 7px blue, 0 0 7px blue , 0 0 7px blue;">
+                <p style="color: blueviolet; font-size: 14px;">
+                    Providing premium quality products with a commitment to innovation and trust. Building a better tomorrow, today.
+                </p>
+            </div>
+            
+            <div style="flex: 1; min-width: 200px; padding: 10px;">
+                <h3 style="color: black; margin-bottom: 10px; font-size: 18px; margin-left: 100px;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0; color: aqua;">
+                    <li><a href="index.html" style="text-decoration: none; color: black; margin-left: 100px;">Home</a></li>
+                    <li><a href="product.html" style="text-decoration: none; color: blueviolet; margin-left: 100px;">Shop</a></li>
+                    <li><a href="contact.html" style="text-decoration: none; color: gray; margin-left: 100px;">Contact Us</a></li>
+                    <li><a href="about.html" style="text-decoration: none; color: #1DA1F2; margin-left: 100px;">About</a></li>
+                </ul>
+            </div>
+    
+            <div style="flex: 1; min-width: 200px; padding: 10px;">
+                <h3 style="color: red; margin-bottom: 10px; font-size: 18px;">Contact Us</h3>
+                <p style="color: black; font-size: 14px; margin-bottom: 5px;"><i class="fas fa-phone-alt" style="margin-right: 5px;"></i> +355 123 4567</p>
+                <p style="color: blue; font-size: 14px; margin-bottom: 5px;"><i class="fas fa-envelope" style="margin-right: 5px;"></i> support@example.com</p>
+                <p style="color: red; font-size: 14px;"><i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i> Kosove Shqiper etj</p>
+            </div>
+    
+            <div style="flex: 1; min-width: 200px; text-align: center; padding: 10px;">
+                <h3 style="color: blue; margin-bottom: 10px; font-size: 18px;">Follow Us</h3>
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                  
+                    <a href="#" style="
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: blueviolet;
+                        color: white;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        box-shadow: 0 0 6px blue, 0 0 6px blue , 0 0 6px blue;
+                        text-decoration: none;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                
+                    <a href="#" style="
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: red;
+                        color: white;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        box-shadow: 0 0 6px red , 0 0 6px red, 0 0 6px red;
+                        text-decoration: none;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    
+                    <a href="#" style="
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #1DA1F2;
+                        color: white;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        box-shadow:0 0 6px #1DA1F2 , 0 0 6px #1DA1F2 , 0 0 6px #1DA1F2 ;
+                        text-decoration: none;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a href="#" style="
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #0077B5;
+                        color: white;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        box-shadow: 0 0 6px #0077B5 , 0 0 6px #0077B5 , 0 0 6px #0077B5;
+                        text-decoration: none;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <hr style="border: 1px solid black; margin: 20px 0; width: 100%;">
+        <div style="text-align: center;">
+            <p style="color: blueviolet; margin: 0; padding: 10px;">&copy; 2024 E-commerce Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
